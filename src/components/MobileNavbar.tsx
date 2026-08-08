@@ -16,13 +16,14 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useState } from "react";
-import { useAuth, SignInButton, SignOutButton } from "@clerk/nextjs";
+import { useAuth, SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import ModeToggle from "./ModeToggle";
 
 function MobileNavbar() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const { isSignedIn } = useAuth();
+  const {user} = useUser();
 
   return (
     <div className="flex md:hidden items-center space-x-2">
@@ -65,7 +66,12 @@ function MobileNavbar() {
                 <Button
                   variant="ghost"
                   className="flex items-center gap-3 justify-start"
-                  render={<Link href="/profile" />}
+                  render={<Link
+                href={`/profile/${
+                  user?.username ??
+                  user?.emailAddresses[0].emailAddress.split("@")[0]
+                }`}
+              />}
                   nativeButton={false}
                 >
                   <UserIcon className="w-4 h-4" />

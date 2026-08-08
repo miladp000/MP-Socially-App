@@ -222,7 +222,7 @@ function ProfilePageClient({
         </Tabs>
 
         <Dialog open={showEditDialog} onOpenChange={setShowEditDialog}>
-          <DialogContent className="sm:max-w-125">
+          <DialogContent className="sm:max-w-[500px]">
             <DialogHeader>
               <DialogTitle>Edit Profile</DialogTitle>
             </DialogHeader>
@@ -242,7 +242,7 @@ function ProfilePageClient({
                   name="bio"
                   value={editForm.bio}
                   onChange={(e) => setEditForm({ ...editForm, bio: e.target.value })}
-                  className="min-h-25"
+                  className="min-h-[100px]"
                   placeholder="Tell us about yourself"
                 />
               </div>
