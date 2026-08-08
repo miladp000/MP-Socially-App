@@ -59,6 +59,7 @@ function MobileNavbar() {
                   className="flex items-center gap-3 justify-start"
                   render={<Link href="/notifications" />}
                   nativeButton={false}
+                  onClick={()=>setShowMobileMenu(false)}
                 >
                   <BellIcon className="w-4 h-4" />
                   Notifications
@@ -72,6 +73,7 @@ function MobileNavbar() {
                   user?.emailAddresses[0].emailAddress.split("@")[0]
                 }`}
               />}
+                  onClick={()=>setShowMobileMenu(false)}
                   nativeButton={false}
                 >
                   <UserIcon className="w-4 h-4" />
@@ -81,6 +83,7 @@ function MobileNavbar() {
                   <Button
                     variant="ghost"
                     className="flex items-center gap-3 justify-start w-full"
+                    onClick={()=>setShowMobileMenu(false)}
                   >
                     <LogOutIcon className="w-4 h-4" />
                     Logout
